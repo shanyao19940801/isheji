@@ -1,4 +1,4 @@
-package com.isheji.project.serice;
+package com.isheji.project.service;
 
 /**
  * Created by user on 2018/4/8.
