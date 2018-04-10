@@ -13,29 +13,29 @@ drop table if exists user_info;
 /*==============================================================*/
 create table user_auths
 (
-   auth_id              int(11) not null auto_increment,
-   user_id              int(11) comment 'ÓÃ»§id',
-   identity_type        varchar(11) comment 'µÇÂ¼ÀàĞÍ',
-   identifier           varchar(30) comment 'µÇÂ¼Î¨Ò»±êÊ¶',
-   credential           varchar(32) comment 'ÃÜÂëÆ¾Ö¤£¨Õ¾ÄÚµÄ±£´æÃÜÂë£¬Õ¾ÍâµÄ²»±£´æ»ò±£´ætoken£©',
+   auth_id              int(9) not null auto_increment,
+   user_id              int(9) comment 'ç”¨æˆ·id',
+   identity_type        varchar(11) comment 'ç™»å½•ç±»å‹',
+   identifier           varchar(30) comment 'ç™»å½•å”¯ä¸€æ ‡è¯†',
+   credential           varchar(32) comment 'å¯†ç å‡­è¯ï¼ˆç«™å†…çš„ä¿å­˜å¯†ç ï¼Œç«™å¤–çš„ä¸ä¿å­˜æˆ–ä¿å­˜tokenï¼‰',
    primary key (auth_id),
    unique key AK_Key_2 (identifier)
 )
-auto_increment = 10000000000;
+auto_increment = 100000000;
 
-alter table user_auths comment 'ÓÃ»§ÊÚÈ¨ĞÅÏ¢±í';
+alter table user_auths comment 'ç”¨æˆ·æˆæƒä¿¡æ¯è¡¨';
 
 /*==============================================================*/
 /* Table: user_info                                             */
 /*==============================================================*/
 create table user_info
 (
-   user_id              int(11) not null auto_increment comment 'ÓÃ»§id',
-   user_name            varchar(11) comment 'ÓÃ»§Ãû³Æ',
-   avatar               varchar(100) comment 'ÓÃ»§Í·ÏñµØÖ·',
+   user_id              int(9) not null auto_increment comment 'ç”¨æˆ·id',
+   user_name            varchar(11) comment 'ç”¨æˆ·åç§°',
+   avatar               varchar(100) comment 'ç”¨æˆ·å¤´åƒåœ°å€',
    primary key (user_id)
 )
-auto_increment = 10000000000;
+auto_increment = 100000000;
 
-alter table user_info comment 'ÓÃ»§»ù±¾ĞÅÏ¢±í';
+alter table user_info comment 'ç”¨æˆ·åŸºæœ¬ä¿¡æ¯è¡¨';
 
