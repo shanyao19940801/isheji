@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * Created by shanyao on 2018/4/10.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:/spring/spring-mybatis.xml")
+@ContextConfiguration("classpath:/spring/spring-context.xml")
 public class UserInfoDaoTest {
     @Autowired
     UserInfoDao userInfoDao;
@@ -21,7 +21,7 @@ public class UserInfoDaoTest {
     public void insert() throws Exception {
         UserInfo userInfo = new UserInfo();
         userInfo.setAvatar("01");
-        userInfo.setUserName("lin");
+        userInfo.setUserName("lin08");
         userInfoDao.insert(userInfo);
     }
 
