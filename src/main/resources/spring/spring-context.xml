@@ -13,6 +13,6 @@
     <!-- druid监控配置 -->
     <!--<import resource="classpath:spring-context-druid-stat.xml"/>-->
     <!-- 事务管理配置 -->
-    <!--<import resource="classpath:spring-context-tx.xml"/>-->
+    <import resource="classpath:/spring/spring-context-tx.xml"/>
 
 </beans>
