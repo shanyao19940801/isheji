@@ -7,5 +7,5 @@ import com.isheji.project.entity.UserInfo;
  */
 public interface IUserService {
 
-    public void insertUserInfo(UserInfo userInfo);
+    public void register(UserInfo userInfo);
 }

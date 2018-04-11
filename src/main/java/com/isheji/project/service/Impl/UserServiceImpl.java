@@ -17,7 +17,7 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public void insertUserInfo(UserInfo userInfo) {
+    public void register(UserInfo userInfo) {
         userInfoDao.insert(userInfo);
     }
 }
