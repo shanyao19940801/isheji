@@ -40,4 +40,19 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--拦截器-->
+    <!-- 对所有请求都拦截，公共拦截器可以有多个 -->
+    <bean name="baseInterceptor" class="com.isheji.project.interceptor.AuthorizationInterceptor"/>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/test/**"/>
+            <bean class="com.isheji.project.interceptor.TestInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <!--<mvc:interceptor>
+        &lt;!&ndash; 对/test.html进行拦截 &ndash;&gt;
+        <mvc:mapping path="/test.html"/>
+        &lt;!&ndash; 特定请求的拦截器只能有一个 &ndash;&gt;
+        <bean class="cn.zifangsky.interceptor.TestInterceptor" />
+    </mvc:interceptor>-->
 </beans>
