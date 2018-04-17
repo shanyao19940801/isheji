@@ -4,9 +4,11 @@ import com.isheji.project.entity.UserInfo;
 import com.isheji.project.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,5 +42,15 @@ public class UserAction {
             return new ResponseEntity<List<UserInfo>>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<List<UserInfo>>(list, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/user/{id}",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserInfo> getUser(@PathVariable("id") int id) {
+        System.out.println("Fetching user with id" + id);
+        UserInfo userInfo = userService.findById(id);
+        if (userInfo == null) {
+            return new ResponseEntity<UserInfo>(userInfo, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<UserInfo>(userInfo, HttpStatus.OK);
     }
 }

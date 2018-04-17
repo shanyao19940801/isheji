@@ -28,4 +28,9 @@ public class UserServiceImpl implements IUserService {
 
         return userInfoDao.findAllUser();
     }
+
+    @Override
+    public UserInfo findById(int id) {
+        return userInfoDao.selectByPrimaryKey(id);
+    }
 }
