@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -23,6 +25,11 @@ public class UserInfoDaoTest {
         userInfo.setAvatar("01");
         userInfo.setUserName("lin08");
         userInfoDao.insert(userInfo);
+    }
+    @Test
+    public void findAllUser() {
+        List<UserInfo> list = userInfoDao.findAllUser();
+        System.out.printf("");
     }
 
 }

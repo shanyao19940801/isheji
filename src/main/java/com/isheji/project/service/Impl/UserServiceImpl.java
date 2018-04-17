@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by shanyao on 2018/4/10.
  */
@@ -19,5 +21,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void register(UserInfo userInfo) {
         userInfoDao.insert(userInfo);
+    }
+
+    @Override
+    public List<UserInfo> findAllUser() {
+
+        return userInfoDao.findAllUser();
     }
 }

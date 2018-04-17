@@ -7,7 +7,7 @@
     <title>用户注册</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/user/regist.action">
+<form action="${pageContext.request.contextPath }/user/regist">
     <table border="1">
         <tr>
             <td>用户名</td>
