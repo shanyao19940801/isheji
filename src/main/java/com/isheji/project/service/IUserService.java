@@ -14,4 +14,6 @@ public interface IUserService {
     List<UserInfo> findAllUser();
 
     UserInfo findById(int id);
+
+    boolean isUserExist(UserInfo userInfo);
 }

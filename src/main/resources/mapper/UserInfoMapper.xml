@@ -9,7 +9,7 @@
   <sql id="Base_Column_List" >
     user_id, user_name, avatar
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="findByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from user_info

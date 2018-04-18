@@ -13,7 +13,7 @@ public interface UserInfoDao {
 
     int insertSelective(UserInfo record);
 
-    UserInfo selectByPrimaryKey(Integer userId);
+    UserInfo findByUserId(Integer userId);
 
     int updateByPrimaryKeySelective(UserInfo record);
 

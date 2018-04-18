@@ -3,14 +3,17 @@ package com.isheji.project.controller;
 import com.isheji.project.entity.UserInfo;
 import com.isheji.project.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -52,5 +55,18 @@ public class UserAction {
             return new ResponseEntity<UserInfo>(userInfo, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<UserInfo>(userInfo, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    public ResponseEntity createUser(@RequestBody UserInfo userInfo, UriComponentsBuilder uriComponentsBuilder) {
+        System.out.println(userInfo.getUserId());
+        if (userService.isUserExist(userInfo)) {
+            System.out.println("該用戶名已存在");
+            return new ResponseEntity(HttpStatus.CONFLICT);
+        }
+        userService.register(userInfo);
+        HttpHeaders httpHeaders= new HttpHeaders();
+        httpHeaders.setLocation(uriComponentsBuilder.path("user/user{id}").buildAndExpand(userInfo.getUserId()).toUri());
+        return new ResponseEntity(httpHeaders, HttpStatus.CREATED);
     }
 }
