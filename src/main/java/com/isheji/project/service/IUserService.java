@@ -16,4 +16,6 @@ public interface IUserService {
     UserInfo findById(int id);
 
     boolean isUserExist(UserInfo userInfo);
+
+    boolean isIdentifierExist(String identifier);
 }

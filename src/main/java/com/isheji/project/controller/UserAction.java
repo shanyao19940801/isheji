@@ -1,6 +1,7 @@
 package com.isheji.project.controller;
 
 import com.isheji.project.entity.UserInfo;
+import com.isheji.project.resquestbody.UserVO;
 import com.isheji.project.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -21,7 +22,7 @@ import java.util.List;
  * Created by user on 2018/4/11.
  */
 @Controller
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserAction {
     @Autowired
     IUserService userService;
@@ -38,7 +39,7 @@ public class UserAction {
         return "success";
     }
 
-    @RequestMapping(value = "/user/",method = RequestMethod.GET)
+    @RequestMapping(value = "/user/list",method = RequestMethod.GET)
     public ResponseEntity<List<UserInfo>> listAlluser() {
         List<UserInfo> list = userService.findAllUser();
         if (list == null || list.isEmpty()) {
@@ -58,9 +59,8 @@ public class UserAction {
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public ResponseEntity createUser(@RequestBody UserInfo userInfo, UriComponentsBuilder uriComponentsBuilder) {
-        System.out.println(userInfo.getUserId());
-        if (userService.isUserExist(userInfo)) {
+    public ResponseEntity createUser(@RequestBody UserVO userInfo, UriComponentsBuilder uriComponentsBuilder) {
+        if (userService.isIdentifierExist(userInfo.getIdentifier())) {
             System.out.println("該用戶名已存在");
             return new ResponseEntity(HttpStatus.CONFLICT);
         }

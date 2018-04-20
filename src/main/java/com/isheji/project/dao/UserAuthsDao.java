@@ -16,4 +16,6 @@ public interface UserAuthsDao {
     int updateByPrimaryKeySelective(UserAuths record);
 
     int updateByPrimaryKey(UserAuths record);
+
+    UserAuths findUserAuthByIdentifier(String identifier);
 }
