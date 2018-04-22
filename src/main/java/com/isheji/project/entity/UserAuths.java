@@ -1,5 +1,7 @@
 package com.isheji.project.entity;
 
+import java.util.Date;
+
 public class UserAuths {
     private Integer authId;
 
@@ -10,6 +12,10 @@ public class UserAuths {
     private String identifier;
 
     private String credential;
+
+    private Date insertDate;
+
+    private Date updateDate;
 
     public Integer getAuthId() {
         return authId;
@@ -49,5 +55,21 @@ public class UserAuths {
 
     public void setCredential(String credential) {
         this.credential = credential == null ? null : credential.trim();
+    }
+
+    public Date getInsertDate() {
+        return insertDate;
+    }
+
+    public void setInsertDate(Date insertDate) {
+        this.insertDate = insertDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 }

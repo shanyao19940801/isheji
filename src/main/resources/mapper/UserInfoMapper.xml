@@ -5,17 +5,23 @@
     <id column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="c_delete" property="cDelete" jdbcType="INTEGER" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="inser_date" property="inserDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    user_id, user_name, avatar
+    user_id, user_name, avatar, c_delete, role, sex, age, inser_date, update_date
   </sql>
-  <select id="findByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from user_info
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
-  <select id="findAllUser" resultMap="BaseResultMap">
+  <select id="findUserAll" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
     FROM user_info
@@ -25,9 +31,13 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.isheji.project.entity.UserInfo" >
-    insert into user_info (user_id, user_name, avatar
+    insert into user_info (user_id, user_name, avatar, 
+      c_delete, role, sex, 
+      age, inser_date, update_date
       )
-    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{cDelete,jdbcType=INTEGER}, #{role,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{age,jdbcType=INTEGER}, #{inserDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.isheji.project.entity.UserInfo" >
@@ -42,6 +52,24 @@
       <if test="avatar != null" >
         avatar,
       </if>
+      <if test="cDelete != null" >
+        c_delete,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="inserDate != null" >
+        inser_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -52,6 +80,24 @@
       </if>
       <if test="avatar != null" >
         #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="cDelete != null" >
+        #{cDelete,jdbcType=INTEGER},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="inserDate != null" >
+        #{inserDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -64,13 +110,37 @@
       <if test="avatar != null" >
         avatar = #{avatar,jdbcType=VARCHAR},
       </if>
+      <if test="cDelete != null" >
+        c_delete = #{cDelete,jdbcType=INTEGER},
+      </if>
+      <if test="role != null" >
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="inserDate != null" >
+        inser_date = #{inserDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.isheji.project.entity.UserInfo" >
     update user_info
     set user_name = #{userName,jdbcType=VARCHAR},
-      avatar = #{avatar,jdbcType=VARCHAR}
+      avatar = #{avatar,jdbcType=VARCHAR},
+      c_delete = #{cDelete,jdbcType=INTEGER},
+      role = #{role,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      inser_date = #{inserDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
 </mapper>

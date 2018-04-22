@@ -1,9 +1,10 @@
 package com.isheji.project.dao;
 
 import com.isheji.project.entity.UserAuths;
-import org.springframework.stereotype.Repository;
+import com.isheji.project.entity.UserInfo;
 
-@Repository
+import java.util.List;
+
 public interface UserAuthsDao {
     int deleteByPrimaryKey(Integer authId);
 
@@ -18,4 +19,6 @@ public interface UserAuthsDao {
     int updateByPrimaryKey(UserAuths record);
 
     UserAuths findUserAuthByIdentifier(String identifier);
+
+    List<UserInfo> findUserAll();
 }

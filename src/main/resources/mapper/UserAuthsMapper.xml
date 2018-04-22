@@ -7,9 +7,11 @@
     <result column="identity_type" property="identityType" jdbcType="VARCHAR" />
     <result column="identifier" property="identifier" jdbcType="VARCHAR" />
     <result column="credential" property="credential" jdbcType="VARCHAR" />
+    <result column="insert_date" property="insertDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    auth_id, user_id, identity_type, identifier, credential
+    auth_id, user_id, identity_type, identifier, credential, insert_date, update_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -17,21 +19,17 @@
     from user_auths
     where auth_id = #{authId,jdbcType=INTEGER}
   </select>
-  <select id="findUserAuthByIdentifier" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select
-    <include refid="Base_Column_List" />
-    from user_auths
-    where identifier = #{identifier,jdbcType=VARCHAR}
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user_auths
     where auth_id = #{authId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.isheji.project.entity.UserAuths" >
     insert into user_auths (auth_id, user_id, identity_type, 
-      identifier, credential)
+      identifier, credential, insert_date, 
+      update_date)
     values (#{authId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{identityType,jdbcType=VARCHAR}, 
-      #{identifier,jdbcType=VARCHAR}, #{credential,jdbcType=VARCHAR})
+      #{identifier,jdbcType=VARCHAR}, #{credential,jdbcType=VARCHAR}, #{insertDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.isheji.project.entity.UserAuths" >
     insert into user_auths
@@ -51,6 +49,12 @@
       <if test="credential != null" >
         credential,
       </if>
+      <if test="insertDate != null" >
+        insert_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="authId != null" >
@@ -67,6 +71,12 @@
       </if>
       <if test="credential != null" >
         #{credential,jdbcType=VARCHAR},
+      </if>
+      <if test="insertDate != null" >
+        #{insertDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -85,6 +95,12 @@
       <if test="credential != null" >
         credential = #{credential,jdbcType=VARCHAR},
       </if>
+      <if test="insertDate != null" >
+        insert_date = #{insertDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where auth_id = #{authId,jdbcType=INTEGER}
   </update>
@@ -93,7 +109,9 @@
     set user_id = #{userId,jdbcType=INTEGER},
       identity_type = #{identityType,jdbcType=VARCHAR},
       identifier = #{identifier,jdbcType=VARCHAR},
-      credential = #{credential,jdbcType=VARCHAR}
+      credential = #{credential,jdbcType=VARCHAR},
+      insert_date = #{insertDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
     where auth_id = #{authId,jdbcType=INTEGER}
   </update>
 </mapper>

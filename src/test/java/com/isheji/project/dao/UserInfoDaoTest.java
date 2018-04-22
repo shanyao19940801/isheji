@@ -23,12 +23,22 @@ public class UserInfoDaoTest {
     public void insert() throws Exception {
         UserInfo userInfo = new UserInfo();
         userInfo.setAvatar("01");
-        userInfo.setUserName("lin08");
+        userInfo.setUserName("lin09");
+        userInfo.setcDelete(70000001);
+        userInfo.setRole("admin");
+        userInfo.setSex("男");
+        userInfo.setAge(90);
         userInfoDao.insert(userInfo);
     }
     @Test
+    public void selectByid() {
+        UserInfo userInfo = userInfoDao.selectByPrimaryKey(100000000);
+        System.out.println(userInfo.getAge());
+    }
+    @Test
     public void findAllUser() {
-        List<UserInfo> list = userInfoDao.findAllUser();
+        List<UserInfo> list = userInfoDao.findUserAll();
+
         System.out.printf("");
     }
 

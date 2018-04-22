@@ -1,11 +1,10 @@
 package com.isheji.project.dao;
 
 import com.isheji.project.entity.UserInfo;
-import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-@Repository
 public interface UserInfoDao {
     int deleteByPrimaryKey(Integer userId);
 
@@ -13,11 +12,14 @@ public interface UserInfoDao {
 
     int insertSelective(UserInfo record);
 
-    UserInfo findByUserId(Integer userId);
+    UserInfo selectByPrimaryKey(Integer userId);
 
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
 
-    List<UserInfo> findAllUser();
+    UserInfo findByUserId(int userId);
+
+    List<UserInfo> findUserAll();
+
 }

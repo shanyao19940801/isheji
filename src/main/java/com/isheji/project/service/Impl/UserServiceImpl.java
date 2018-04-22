@@ -1,9 +1,11 @@
 package com.isheji.project.service.Impl;
 
+import com.github.pagehelper.PageHelper;
 import com.isheji.project.dao.UserAuthsDao;
 import com.isheji.project.dao.UserInfoDao;
 import com.isheji.project.entity.UserInfo;
 import com.isheji.project.service.IUserService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +29,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<UserInfo> findAllUser() {
 
-        return userInfoDao.findAllUser();
+        return userInfoDao.findUserAll();
     }
 
     @Override
@@ -49,5 +51,17 @@ public class UserServiceImpl implements IUserService {
     public boolean isIdentifierExist(String identifier) {
 
         return !(userAuthsDao.findUserAuthByIdentifier(identifier) == null);
+    }
+
+    /**
+     * 分页
+     * @param num
+     * @param size
+     * @return
+     */
+    public List<UserInfo> selectByPageNumSize(int num, int size) {
+        PageHelper.offsetPage(num,size);
+//        return userInfoDao.selectAll();
+        return null;
     }
 }
