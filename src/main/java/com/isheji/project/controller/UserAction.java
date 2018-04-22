@@ -1,5 +1,6 @@
 package com.isheji.project.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.isheji.project.entity.UserInfo;
 import com.isheji.project.resquestbody.UserVO;
 import com.isheji.project.service.IUserService;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -39,13 +41,17 @@ public class UserAction {
         return "success";
     }
 
+    //查询列表
     @RequestMapping(value = "/user/list",method = RequestMethod.GET)
-    public ResponseEntity<List<UserInfo>> listAlluser() {
-        List<UserInfo> list = userService.findAllUser();
+    public ResponseEntity<PageInfo<UserInfo>> listAlluser(HttpServletRequest request) {
+        int offset = Integer.parseInt(request.getParameter("offset"));
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        List<UserInfo> list = userService.findAllUser(offset,limit);
+        PageInfo pageInfo = new PageInfo(list);
         if (list == null || list.isEmpty()) {
-            return new ResponseEntity<List<UserInfo>>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<PageInfo<UserInfo>>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<List<UserInfo>>(list, HttpStatus.OK);
+        return new ResponseEntity<PageInfo<UserInfo>>(pageInfo, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/user/{id}",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)

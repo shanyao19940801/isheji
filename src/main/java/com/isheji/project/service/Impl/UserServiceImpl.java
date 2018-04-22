@@ -27,19 +27,20 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public List<UserInfo> findAllUser() {
-
-        return userInfoDao.findUserAll();
+    public List<UserInfo> findAllUser(int offset, int limit) {
+        PageHelper.offsetPage(offset, limit);
+        return userInfoDao.selectAll();
     }
+
 
     @Override
     public UserInfo findById(int id) {
-        return userInfoDao.findByUserId(id);
+        return userInfoDao.selectByPrimaryKey(id);
     }
 
     @Override
     public boolean isUserExist(UserInfo userInfo) {
-        return !(userInfoDao.findByUserId(userInfo.getUserId()) == null);
+        return !(userInfoDao.selectByPrimaryKey(userInfo.getUserId()) == null);
     }
 
     /**

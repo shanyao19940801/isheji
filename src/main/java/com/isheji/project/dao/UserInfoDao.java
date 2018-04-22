@@ -5,8 +5,8 @@ import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-public interface UserInfoDao {
-    int deleteByPrimaryKey(Integer userId);
+public interface UserInfoDao extends Mapper<UserInfo>{
+    /*int deleteByPrimaryKey(Integer userId);
 
     int insert(UserInfo record);
 
@@ -20,6 +20,6 @@ public interface UserInfoDao {
 
     UserInfo findByUserId(int userId);
 
-    List<UserInfo> findUserAll();
+    List<UserInfo> findUserAll();*/
 
 }

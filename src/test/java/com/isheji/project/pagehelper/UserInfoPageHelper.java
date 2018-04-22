@@ -22,12 +22,12 @@ public class UserInfoPageHelper {
     UserInfoDao userInfoDao;
     @Test
     public void testPageHelper() {
-        PageHelper.offsetPage(1,2);
+        PageHelper.offsetPage(0,0);
         List<UserInfo> list1 = userInfoDao.selectAll();
-        List<UserInfo> list = userInfoDao.findUserAll();
+//        List<UserInfo> list = userInfoDao.findUserAll();
 
-        PageInfo<UserInfo> pageInfo = new PageInfo<>(list);
-        System.out.println(list.size());
+/*        PageInfo<UserInfo> pageInfo = new PageInfo<>(list);
+        System.out.println(list.size());*/
 
     }
 

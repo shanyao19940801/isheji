@@ -37,7 +37,7 @@ public class UserInfoDaoTest {
     }
     @Test
     public void findAllUser() {
-        List<UserInfo> list = userInfoDao.findUserAll();
+        List<UserInfo> list = userInfoDao.selectAll();
 
         System.out.printf("");
     }

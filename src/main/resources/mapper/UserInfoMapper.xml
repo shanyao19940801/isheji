@@ -15,18 +15,18 @@
   <sql id="Base_Column_List" >
     user_id, user_name, avatar, c_delete, role, sex, age, inser_date, update_date
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from user_info
     where user_id = #{userId,jdbcType=INTEGER}
-  </select>
-  <select id="findUserAll" resultMap="BaseResultMap">
+  </select>-->
+<!--  <select id="findUserAll" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
     FROM user_info
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  </select>-->
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user_info
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
@@ -39,8 +39,8 @@
       #{cDelete,jdbcType=INTEGER}, #{role,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER}, #{inserDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
       )
-  </insert>
-  <insert id="insertSelective" parameterType="com.isheji.project.entity.UserInfo" >
+  </insert>-->
+  <!--<insert id="insertSelective" parameterType="com.isheji.project.entity.UserInfo" >
     insert into user_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -100,8 +100,8 @@
         #{updateDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.isheji.project.entity.UserInfo" >
+  </insert>-->
+  <!--<update id="updateByPrimaryKeySelective" parameterType="com.isheji.project.entity.UserInfo" >
     update user_info
     <set >
       <if test="userName != null" >
@@ -130,8 +130,8 @@
       </if>
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.isheji.project.entity.UserInfo" >
+  </update>-->
+  <!--<update id="updateByPrimaryKey" parameterType="com.isheji.project.entity.UserInfo" >
     update user_info
     set user_name = #{userName,jdbcType=VARCHAR},
       avatar = #{avatar,jdbcType=VARCHAR},
@@ -142,5 +142,5 @@
       inser_date = #{inserDate,jdbcType=TIMESTAMP},
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where user_id = #{userId,jdbcType=INTEGER}
-  </update>
+  </update>-->
 </mapper>
