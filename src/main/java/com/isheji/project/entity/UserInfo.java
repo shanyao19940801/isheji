@@ -17,7 +17,7 @@ public class UserInfo {
 
     private Integer age;
 
-    private Date inserDate;
+    private Date insertDate;
 
     private Date updateDate;
 
@@ -77,12 +77,12 @@ public class UserInfo {
         this.age = age;
     }
 
-    public Date getInserDate() {
-        return inserDate;
+    public Date getInsertDate() {
+        return insertDate;
     }
 
-    public void setInserDate(Date inserDate) {
-        this.inserDate = inserDate;
+    public void setInsertDate(Date insertDate) {
+        this.insertDate = insertDate;
     }
 
     public Date getUpdateDate() {

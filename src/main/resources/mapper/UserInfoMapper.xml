@@ -9,11 +9,11 @@
     <result column="role" property="role" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
-    <result column="inser_date" property="inserDate" jdbcType="TIMESTAMP" />
+    <result column="insert_date" property="insertDate" jdbcType="TIMESTAMP" />
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    user_id, user_name, avatar, c_delete, role, sex, age, inser_date, update_date
+    user_id, user_name, avatar, c_delete, role, sex, age, insert_date, update_date
   </sql>
   <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -33,11 +33,11 @@
   <insert id="insert" parameterType="com.isheji.project.entity.UserInfo" >
     insert into user_info (user_id, user_name, avatar, 
       c_delete, role, sex, 
-      age, inser_date, update_date
+      age, insert_date, update_date
       )
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
       #{cDelete,jdbcType=INTEGER}, #{role,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
-      #{age,jdbcType=INTEGER}, #{inserDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
+      #{age,jdbcType=INTEGER}, #{insertDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>-->
   <!--<insert id="insertSelective" parameterType="com.isheji.project.entity.UserInfo" >
@@ -64,8 +64,8 @@
       <if test="age != null" >
         age,
       </if>
-      <if test="inserDate != null" >
-        inser_date,
+      <if test="insertDate != null" >
+        insert_date,
       </if>
       <if test="updateDate != null" >
         update_date,
@@ -93,8 +93,8 @@
       <if test="age != null" >
         #{age,jdbcType=INTEGER},
       </if>
-      <if test="inserDate != null" >
-        #{inserDate,jdbcType=TIMESTAMP},
+      <if test="insertDate != null" >
+        #{insertDate,jdbcType=TIMESTAMP},
       </if>
       <if test="updateDate != null" >
         #{updateDate,jdbcType=TIMESTAMP},
@@ -122,8 +122,8 @@
       <if test="age != null" >
         age = #{age,jdbcType=INTEGER},
       </if>
-      <if test="inserDate != null" >
-        inser_date = #{inserDate,jdbcType=TIMESTAMP},
+      <if test="insertDate != null" >
+        insert_date = #{insertDate,jdbcType=TIMESTAMP},
       </if>
       <if test="updateDate != null" >
         update_date = #{updateDate,jdbcType=TIMESTAMP},
@@ -139,7 +139,7 @@
       role = #{role,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
-      inser_date = #{inserDate,jdbcType=TIMESTAMP},
+      insert_date = #{insertDate,jdbcType=TIMESTAMP},
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>-->
