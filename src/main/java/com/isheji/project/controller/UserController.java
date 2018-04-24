@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Controller
 //@RequestMapping("/user")
-public class UserAction {
+public class UserController {
     @Autowired
     IUserService userService;
 
@@ -67,7 +67,7 @@ public class UserAction {
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public ResponseEntity createUser(@RequestBody UserVO userInfo, UriComponentsBuilder uriComponentsBuilder) {
         if (userService.isIdentifierExist(userInfo.getIdentifier())) {
-            System.out.println("該用戶名已存在");
+//            System.out.println("該用戶名已存在");
             return new ResponseEntity(HttpStatus.CONFLICT);
         }
         userService.register(userInfo);
