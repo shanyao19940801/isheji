@@ -61,7 +61,33 @@
       <artifactId>spring-jdbc</artifactId>
       <version>${spring.version}</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-messaging -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-messaging</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-websocket</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+
     <!--end spring-->
+    <!--start可以用注解对实体进行get&set-->
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.22</version>
+      <scope>provided</scope>
+    </dependency>
+    <!--end-->
+
     <!--通用Mapper-->
     <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
     <dependency>
@@ -149,11 +175,13 @@
     </dependency>
 
     <!--json处理jarbao-->
+<!--
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>${fastjson.version}</version>
     </dependency>
+-->
 
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -204,6 +232,30 @@
       <version>2.7.3</version>
     </dependency>
     <!-- redis cache related.....end -->
+
+    <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.3</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.7</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!--TODO-->
+    <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version>
+    </dependency>
+
   </dependencies>
 
   <build>
