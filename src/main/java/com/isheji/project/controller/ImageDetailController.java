@@ -23,7 +23,7 @@ public class ImageDetailController {
 
     private static final Log logger = LogFactory.getLog(ImageDetailController.class);
 
-    //TODO 不明白
+    //TODO 不明白access干嘛的
     @Access
     @RequestMapping(value = "/getDetail", method = RequestMethod.GET)
     public Msg getImageDetail(HttpServletRequest request) {

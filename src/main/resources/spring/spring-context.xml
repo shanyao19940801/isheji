@@ -9,7 +9,7 @@
     <!-- 组件扫描和自动装配 -->
     <context:component-scan base-package="com.isheji.project.dao"/>
     <context:component-scan base-package="com.isheji.project.service"/>
-
+    <context:property-placeholder location="classpath:application.properties"/>
     <!-- 事务管理配置 -->
     <import resource="classpath:/spring/spring-context-tx.xml"/>
     <!-- druid监控配置 -->

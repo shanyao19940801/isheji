@@ -31,7 +31,8 @@ public class UserService  {
     }
 
     public String createOrder(String out_trade_no, String amount, String subject, String store_id, String timeout_express) {
-        return userRepo.createOrder(out_trade_no,amount,subject,store_id,timeout_express);
+//        return userRepo.createOrder(out_trade_no,amount,subject,store_id,timeout_express);
+        return null;
     }
 
     public String dbCount(String uName) {
