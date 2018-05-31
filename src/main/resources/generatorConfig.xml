@@ -16,7 +16,7 @@
 
         <!-- 数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/yellow_page"
+                        connectionURL="jdbc:mysql://localhost:3306/isheji"
                         userId="root"
                         password="shanyao">
         </jdbcConnection>
