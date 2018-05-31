@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "user")
+@Deprecated
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

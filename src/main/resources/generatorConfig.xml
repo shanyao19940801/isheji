@@ -16,7 +16,7 @@
 
         <!-- 数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/isheji"
+                        connectionURL="jdbc:mysql://localhost:3306/yellow_page"
                         userId="root"
                         password="shanyao">
         </jdbcConnection>
@@ -42,17 +42,28 @@
         </javaClientGenerator>
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
- <!--       <table schema="isheji" tableName="user_info" domainObjectName="UserInfo"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>-->
-        <table schema="isheji" tableName="user_auths" domainObjectName="UserAuths"
+
+        <!--<table schema="isheji" tableName="user_auths" domainObjectName="UserAuths"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
         <table schema="isheji" tableName="user_info" domainObjectName="UserInfo"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>-->
+        <table schema="isheji" tableName="image_detail" domainObjectName="ImageDetail"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="isheji" tableName="image_list" domainObjectName="ImageList"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="isheji" tableName="love" domainObjectName="Love"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
