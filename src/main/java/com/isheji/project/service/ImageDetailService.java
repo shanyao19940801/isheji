@@ -18,7 +18,8 @@ public class ImageDetailService {
 
     @Transactional
     public List<ImageDetail> getImageDetail(String id, String flag) {
-        return imageDetailMapper.getImageDetail(id, flag);
+        //TODO 这儿的flag
+        return imageDetailMapper.getImageDetail(id);
 //        return imageDetailRepo.getImageDetail(id,flag);
 
     }
