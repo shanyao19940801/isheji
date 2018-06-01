@@ -1,41 +1,18 @@
 package com.isheji.project.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@Table(name = "imageList")
 public class ImageList {
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Id
-    @Column(name = "id")
     private String id;
 
-    @Column(name = "type")
-    private Integer type;
-
-    @Column(name = "title")
-    private String title;
-
-    @Column(name = "uploadDt")
-    private String uploadDt;
-
-    @Column(name = "headImage")
     private String headImage;
 
-    @Column(name = "height")
     private String height;
 
-    @Column(name = "width")
+    private String title;
+
+    private Integer type;
+
+    private String uploadDt;
+
     private String width;
 
     public String getId() {
@@ -43,7 +20,31 @@ public class ImageList {
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getHeadImage() {
+        return headImage;
+    }
+
+    public void setHeadImage(String headImage) {
+        this.headImage = headImage == null ? null : headImage.trim();
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height == null ? null : height.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public Integer getType() {
@@ -54,36 +55,12 @@ public class ImageList {
         this.type = type;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getUploadDt() {
         return uploadDt;
     }
 
     public void setUploadDt(String uploadDt) {
-        this.uploadDt = uploadDt;
-    }
-
-    public String getHeadImage() {
-        return headImage;
-    }
-
-    public void setHeadImage(String headImage) {
-        this.headImage = headImage;
-    }
-
-    public String getHeight() {
-        return height;
-    }
-
-    public void setHeight(String height) {
-        this.height = height;
+        this.uploadDt = uploadDt == null ? null : uploadDt.trim();
     }
 
     public String getWidth() {
@@ -91,18 +68,6 @@ public class ImageList {
     }
 
     public void setWidth(String width) {
-        this.width = width;
-    }
-
-    public ImageList(Integer type, String title, String uploadDt, String headImage, String height, String width) {
-        this.type = type;
-        this.title = title;
-        this.uploadDt = uploadDt;
-        this.headImage = headImage;
-        this.height = height;
-        this.width = width;
-    }
-
-    public ImageList() {
+        this.width = width == null ? null : width.trim();
     }
 }
