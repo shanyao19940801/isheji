@@ -11,8 +11,8 @@ import java.util.List;
 
 @Repository
 public class ImageDetailRepo {
-    private static final Log logger = LogFactory.getLog(ImageDetailRepo.class);
-    @PersistenceContext
+//    private static final Log logger = LogFactory.getLog(ImageDetailRepo.class);
+//    @PersistenceContext
     EntityManager entityManager;
 
     public List<ImageDetail> getImageDetail(String id, String flag) {
@@ -40,9 +40,7 @@ public class ImageDetailRepo {
                 entityManager.persist(imageDetailList.get(i));
             }
         } catch (Exception e) {
-            logger.debug("exxxxx");
             e.printStackTrace();
         }
-        logger.info("addImageList over length is " + imageDetailList.size());
     }
 }

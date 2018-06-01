@@ -47,8 +47,8 @@ public class UserController {
     @Resource
     UserService userService;
 
-    @Resource
-    WebSocketService webSocketService;
+/*    @Resource
+    WebSocketService webSocketService;*/
 
     @PersistenceContext
     EntityManager entityManager;
@@ -93,7 +93,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/version", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/version", method = RequestMethod.GET)
     public Msg version(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Cookie[] cookies = request.getCookies();
         HttpSession ses = request.getSession();
@@ -127,7 +127,7 @@ public class UserController {
         map.put("name",uName);
         map.put("selfCount",userLoginCount);
         return ResultUtil.success(map);
-    }
+    }*/
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Msg login(User req, HttpServletRequest request, HttpServletResponse response) throws Exception {

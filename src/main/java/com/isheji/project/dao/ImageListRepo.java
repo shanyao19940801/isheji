@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public class ImageListRepo {
-    //springboot会默认自动将数据源中的配置注入,用法与hibernate中sessionFactory生成的session类似。以后使用多数据源时会详细解释
     @PersistenceContext
     EntityManager entityManager;
 

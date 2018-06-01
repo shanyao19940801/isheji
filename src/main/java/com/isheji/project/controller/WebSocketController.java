@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 @Controller
 public class WebSocketController {
 
-    private static final Log logger = LogFactory.getLog(WebSocketController.class);
+    /*private static final Log logger = LogFactory.getLog(WebSocketController.class);
 
     @Resource
     WebSocketService webSocketService;
@@ -39,5 +39,5 @@ public class WebSocketController {
         logger.info("name is " + name  + " content is " + content);
         webSocketService.send2Users(name, new WiselyResponse("single",message));
         return null;
-    }
+    }*/
 }
