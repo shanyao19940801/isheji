@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isheji.project.dao.ImageDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.isheji.project.entity.ImageDetail" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="height" property="height" jdbcType="VARCHAR" />
+    <result column="image_list_id" property="imageListId" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="width" property="width" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, height, image_list_id, url, width
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from image_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+    <select id="getImageDetail" resultMap="BaseResultMap" parameterType="java.lang.String">
+      select
+      <include refid="Base_Column_List"/>
+       from image_detail
+      where  image_list_id = #{id,jdbcType=VARCHAR}
+    </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from image_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.isheji.project.entity.ImageDetail" >
+    insert into image_detail (id, height, image_list_id, 
+      url, width)
+    values (#{id,jdbcType=INTEGER}, #{height,jdbcType=VARCHAR}, #{imageListId,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{width,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isheji.project.entity.ImageDetail" >
+    insert into image_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="imageListId != null" >
+        image_list_id,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="width != null" >
+        width,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="imageListId != null" >
+        #{imageListId,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null" >
+        #{width,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isheji.project.entity.ImageDetail" >
+    update image_detail
+    <set >
+      <if test="height != null" >
+        height = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="imageListId != null" >
+        image_list_id = #{imageListId,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null" >
+        width = #{width,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isheji.project.entity.ImageDetail" >
+    update image_detail
+    set height = #{height,jdbcType=VARCHAR},
+      image_list_id = #{imageListId,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      width = #{width,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

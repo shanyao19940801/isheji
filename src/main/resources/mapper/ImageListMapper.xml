@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isheji.project.dao.ImageListDao" >
+  <resultMap id="BaseResultMap" type="com.isheji.project.entity.ImageList" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="head_image" property="headImage" jdbcType="VARCHAR" />
+    <result column="height" property="height" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="upload_dt" property="uploadDt" jdbcType="VARCHAR" />
+    <result column="width" property="width" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, head_image, height, title, type, upload_dt, width
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from image_list
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from image_list
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.isheji.project.entity.ImageList" >
+    insert into image_list (id, head_image, height, 
+      title, type, upload_dt, 
+      width)
+    values (#{id,jdbcType=VARCHAR}, #{headImage,jdbcType=VARCHAR}, #{height,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{uploadDt,jdbcType=VARCHAR}, 
+      #{width,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isheji.project.entity.ImageList" >
+    insert into image_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="headImage != null" >
+        head_image,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="uploadDt != null" >
+        upload_dt,
+      </if>
+      <if test="width != null" >
+        width,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="headImage != null" >
+        #{headImage,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDt != null" >
+        #{uploadDt,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null" >
+        #{width,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isheji.project.entity.ImageList" >
+    update image_list
+    <set >
+      <if test="headImage != null" >
+        head_image = #{headImage,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        height = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="uploadDt != null" >
+        upload_dt = #{uploadDt,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null" >
+        width = #{width,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isheji.project.entity.ImageList" >
+    update image_list
+    set head_image = #{headImage,jdbcType=VARCHAR},
+      height = #{height,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      upload_dt = #{uploadDt,jdbcType=VARCHAR},
+      width = #{width,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

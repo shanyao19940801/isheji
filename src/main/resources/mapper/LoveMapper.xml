@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isheji.project.dao.LoveMapper" >
+  <resultMap id="BaseResultMap" type="com.isheji.project.entity.Love" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="imageid" property="imageid" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="create_dt" property="createDt" jdbcType="TIMESTAMP" />
+    <result column="modify_dt" property="modifyDt" jdbcType="TIMESTAMP" />
+    <result column="image_list_id" property="imageListId" jdbcType="VARCHAR" />
+    <result column="is_love" property="isLove" jdbcType="BIT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, imageid, username, create_dt, modify_dt, image_list_id, is_love, user_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from love
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from love
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.isheji.project.entity.Love" >
+    insert into love (id, imageid, username, 
+      create_dt, modify_dt, image_list_id, 
+      is_love, user_id)
+    values (#{id,jdbcType=INTEGER}, #{imageid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{createDt,jdbcType=TIMESTAMP}, #{modifyDt,jdbcType=TIMESTAMP}, #{imageListId,jdbcType=VARCHAR}, 
+      #{isLove,jdbcType=BIT}, #{userId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isheji.project.entity.Love" >
+    insert into love
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="imageid != null" >
+        imageid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="createDt != null" >
+        create_dt,
+      </if>
+      <if test="modifyDt != null" >
+        modify_dt,
+      </if>
+      <if test="imageListId != null" >
+        image_list_id,
+      </if>
+      <if test="isLove != null" >
+        is_love,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="imageid != null" >
+        #{imageid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="createDt != null" >
+        #{createDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDt != null" >
+        #{modifyDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imageListId != null" >
+        #{imageListId,jdbcType=VARCHAR},
+      </if>
+      <if test="isLove != null" >
+        #{isLove,jdbcType=BIT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isheji.project.entity.Love" >
+    update love
+    <set >
+      <if test="imageid != null" >
+        imageid = #{imageid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="createDt != null" >
+        create_dt = #{createDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDt != null" >
+        modify_dt = #{modifyDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imageListId != null" >
+        image_list_id = #{imageListId,jdbcType=VARCHAR},
+      </if>
+      <if test="isLove != null" >
+        is_love = #{isLove,jdbcType=BIT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isheji.project.entity.Love" >
+    update love
+    set imageid = #{imageid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      create_dt = #{createDt,jdbcType=TIMESTAMP},
+      modify_dt = #{modifyDt,jdbcType=TIMESTAMP},
+      image_list_id = #{imageListId,jdbcType=VARCHAR},
+      is_love = #{isLove,jdbcType=BIT},
+      user_id = #{userId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
