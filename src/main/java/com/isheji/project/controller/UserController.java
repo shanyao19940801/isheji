@@ -4,6 +4,8 @@ import com.github.pagehelper.PageInfo;
 import com.isheji.project.entity.UserInfo;
 import com.isheji.project.resquestbody.UserVO;
 import com.isheji.project.service.IUserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,10 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +22,12 @@ import java.util.List;
 /**
  * Created by user on 2018/4/11.
  */
-@Controller
-//@RequestMapping("/user")
+@RestController
+@RequestMapping(value = "/user")
+@CrossOrigin
 public class UserController {
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
+//    private EncrypAES aesEncryp = new EncrypAES();
     @Autowired
     IUserService userService;
 
@@ -44,6 +46,8 @@ public class UserController {
     //查询列表
     @RequestMapping(value = "/user/list",method = RequestMethod.GET)
     public ResponseEntity<PageInfo<UserInfo>> listAlluser(HttpServletRequest request) {
+        logger.info("user/list");
+        System.out.println("test");
         int offset = Integer.parseInt(request.getParameter("offset"));
         int limit = Integer.parseInt(request.getParameter("limit"));
         List<UserInfo> list = userService.findAllUser(offset,limit);

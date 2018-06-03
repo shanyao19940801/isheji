@@ -6,6 +6,8 @@ import com.isheji.project.dao.UserInfoDao;
 import com.isheji.project.entity.UserInfo;
 import com.isheji.project.service.IUserService;
 import org.apache.ibatis.session.RowBounds;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import java.util.List;
  */
 @Service("userServcie")
 public class UserServiceImpl implements IUserService {
+    private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
     UserInfoDao userInfoDao;
     @Autowired
@@ -28,6 +31,8 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<UserInfo> findAllUser(int offset, int limit) {
+        logger.debug("tete");
+        logger.info("sadf");
         PageHelper.offsetPage(offset, limit);
         return userInfoDao.selectAll();
     }

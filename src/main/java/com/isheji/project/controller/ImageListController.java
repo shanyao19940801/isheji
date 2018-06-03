@@ -4,6 +4,8 @@ import com.isheji.project.common.utils.ResultUtil;
 import com.isheji.project.entity.ImageList;
 import com.isheji.project.entity.Msg;
 import com.isheji.project.service.IImageListService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -14,12 +16,13 @@ import java.util.List;
 @RequestMapping(value = "/image")
 @CrossOrigin
 public class ImageListController {
-
+    private static Logger logger = LoggerFactory.getLogger(ImageListController.class);
     @Resource
     IImageListService imageListService;
 
     @RequestMapping(value = "/getList", method = RequestMethod.GET)
     public Msg getImageList(HttpServletRequest request) {
+        logger.info("getList");
         String sIndex = request.getParameter("pageIndex");
         String sSize = request.getParameter("pageSize");
         String sType = request.getParameter("type");
