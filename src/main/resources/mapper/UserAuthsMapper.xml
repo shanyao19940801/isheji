@@ -13,7 +13,7 @@
   <sql id="Base_Column_List" >
     auth_id, user_id, identity_type, identifier, credential, insert_date, update_date
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from user_auths
@@ -113,5 +113,5 @@
       insert_date = #{insertDate,jdbcType=TIMESTAMP},
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where auth_id = #{authId,jdbcType=INTEGER}
-  </update>
+  </update>-->
 </mapper>

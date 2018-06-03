@@ -1,5 +1,8 @@
 package com.isheji.project.entity;
 
+
+import tk.mybatis.mapper.common.Mapper;
+
 import java.util.Date;
 
 public class UserInfo {

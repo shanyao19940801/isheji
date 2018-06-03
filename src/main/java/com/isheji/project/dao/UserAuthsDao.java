@@ -2,11 +2,12 @@ package com.isheji.project.dao;
 
 import com.isheji.project.entity.UserAuths;
 import com.isheji.project.entity.UserInfo;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-public interface UserAuthsDao {
-    int deleteByPrimaryKey(Integer authId);
+public interface UserAuthsDao extends Mapper<UserAuths>{
+    /*int deleteByPrimaryKey(Integer authId);
 
     int insert(UserAuths record);
 
@@ -18,7 +19,7 @@ public interface UserAuthsDao {
 
     int updateByPrimaryKey(UserAuths record);
 
-    UserAuths findUserAuthByIdentifier(String identifier);
 
-    List<UserInfo> findUserAll();
+    List<UserInfo> findUserAll();*/
+    UserAuths findUserAuthByIdentifier(String identifier);
 }

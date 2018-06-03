@@ -1,8 +1,12 @@
 package com.isheji.project.dao;
 
 import com.isheji.project.entity.ImageDetail;
+import tk.mybatis.mapper.common.Mapper;
+//import tk.mybatis.mapper.common.Mapper;
 
-public interface ImageDetailMapper {
+import java.util.List;
+
+public interface ImageDetailMapper extends Mapper<ImageDetail>{
     int deleteByPrimaryKey(Integer id);
 
     int insert(ImageDetail record);
@@ -14,4 +18,6 @@ public interface ImageDetailMapper {
     int updateByPrimaryKeySelective(ImageDetail record);
 
     int updateByPrimaryKey(ImageDetail record);
+
+    List<ImageDetail> getImageDetailByListId(String id);
 }

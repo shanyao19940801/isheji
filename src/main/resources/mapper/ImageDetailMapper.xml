@@ -11,7 +11,7 @@
   <sql id="Base_Column_List" >
     id, height, image_list_id, url, width
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+ <!-- <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from image_detail
@@ -90,4 +90,11 @@
       width = #{width,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+-->
+  <select id="getImageDetailByListId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List"/>
+    from image_detail
+    where  image_list_id = #{id,jdbcType=VARCHAR}
+  </select>
 </mapper>
