@@ -1,0 +1,15 @@
+INSERT INTO `user` VALUES (3, 'd03be4bf86e44a8aa481cfe92588f768', '789', '456', '0', '123', NULL, 0);
+INSERT INTO `user` VALUES (4, '2a4a8433ab32449abb8e4eec357b19f1', '3,3', '2,2', '0', '1', NULL, 0);
+INSERT INTO `user` VALUES (7, 'b315bb205c5b45babf86de95e8b8eb19', '406644209@qq.com,406644209@qq.com', 'lin,lin', '1', 'wori', NULL, 0);
+INSERT INTO `user` VALUES (9, '1404139019f24c5f9a6e0bbd1e2755cd', '123', '123', '0', '1111', NULL, 0);
+INSERT INTO `user` VALUES (10, '1864d4256ea143ff8b93c0b355a73612', '5555,5555', '321555,321555', '0', '12345', NULL, 0);
+INSERT INTO `user` VALUES (11, '1b64917c3d78441d900cfc88fddc4db4', 'pppp', 'ppp', '1', 'pp', NULL, 251);
+INSERT INTO `user` VALUES (12, '9e341ea4fffd46ad8b9619f10ee11316', 'pppp11', 'ppp', '0', 'pp111', NULL, 0);
+INSERT INTO `user` VALUES (13, '055b31e619fb4ba48d1cb47ada262c2c', 'pppp11111', 'ppp111', '0', 'pp11111', NULL, 0);
+INSERT INTO `user` VALUES (14, '15a9d0d7eb1649f58291e127b69d6c85', '222', '123', '0', 'pp1132', NULL, 0);
+INSERT INTO `user` VALUES (15, '6f5f657e18dc447e9175d346d7a05b9a', '1060996790@qq.com', 'b11', '1', 'b1', 'a7dd7c91de7f47389d1caed65cedc8b8', 514);
+INSERT INTO `user` VALUES (16, '2b1093f644b54eca8b9a3071d7b5fa9b', '406644209@qq.com', '123', '0', '11122', NULL, 0);
+INSERT INTO `user` VALUES (17, NULL, NULL, 'guest', '1', 'admin', NULL, 1186);
+INSERT INTO `user` VALUES (18, NULL, NULL, 'admin', '1', 'guest', NULL, 409);
+INSERT INTO `user` VALUES (19, '843697347ceb4fe79f84420a2fb7bd44', 'lin1heart@gmail.com', '222', '0', '12333', NULL, NULL);
+INSERT INTO `user` VALUES (21, '1be0ae91a6724102b4bd9be18b85dc2a', 'lin1heart@foxmail.com', '123', '1', 'lin', NULL, 1);
