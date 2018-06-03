@@ -17,13 +17,6 @@
     from image_detail
     where id = #{id,jdbcType=INTEGER}
   </select>
-
-    <select id="getImageDetail" resultMap="BaseResultMap" parameterType="java.lang.String">
-      select
-      <include refid="Base_Column_List"/>
-       from image_detail
-      where  image_list_id = #{id,jdbcType=VARCHAR}
-    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from image_detail
     where id = #{id,jdbcType=INTEGER}

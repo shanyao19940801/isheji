@@ -1,10 +1,6 @@
 package com.isheji.project.entity;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class Msg<T> {
     /*错误码*/
     private Integer code;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.isheji.project.dao.ImageListDao" >
+<mapper namespace="com.isheji.project.dao.ImageListMapper" >
   <resultMap id="BaseResultMap" type="com.isheji.project.entity.ImageList" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="head_image" property="headImage" jdbcType="VARCHAR" />

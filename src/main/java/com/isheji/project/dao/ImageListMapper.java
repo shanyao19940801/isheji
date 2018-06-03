@@ -1,9 +1,8 @@
 package com.isheji.project.dao;
 
 import com.isheji.project.entity.ImageList;
-import tk.mybatis.mapper.common.Mapper;
 
-public interface ImageListDao extends Mapper<ImageList> {
+public interface ImageListMapper {
     int deleteByPrimaryKey(String id);
 
     int insert(ImageList record);
