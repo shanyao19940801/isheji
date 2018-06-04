@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ImageListServiceImpl implements IImageListService {
@@ -18,7 +20,9 @@ public class ImageListServiceImpl implements IImageListService {
     @Transactional
     public List<ImageList> getImageListWithTypeAndPageIndexAndPageSize(int pageIndex, int pageSize, int type) {
         PageHelper.offsetPage(pageIndex, pageSize);
-        return imageListMapper.getImageListWithType(type);
+        Map paramMap = new HashMap<>();
+        paramMap.put("type", type);
+        return imageListMapper.getImageListWithType(paramMap);
     }
 
     @Transactional

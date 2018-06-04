@@ -35,8 +35,14 @@ public class ImageListController {
         if(sType != null) {
            type = Integer.parseInt(sType);
         }
-
-        return ResultUtil.success(imageListService.getImageListWithTypeAndPageIndexAndPageSize(pageIndex, pageSize, type));
+        try {
+            List list = imageListService.getImageListWithTypeAndPageIndexAndPageSize(pageIndex, pageSize, type);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage(), e);
+            return ResultUtil.error(999, "error");
+        }
+        return ResultUtil.success();
     }
 
     @RequestMapping(value = "/addList", method = RequestMethod.POST)
