@@ -22,10 +22,10 @@ public class ImageListController {
 
     @RequestMapping(value = "/getList", method = RequestMethod.GET)
     public Msg getImageList(HttpServletRequest request) {
+        logger.info("getList");
         String sIndex = request.getParameter("pageIndex");
         String sSize = request.getParameter("pageSize");
         String sType = request.getParameter("type");
-        logger.info("pageIndex:" + sIndex + "sSize:" + sSize + "sType:" + sType);
         if(sIndex == null || sSize == null) {
             return ResultUtil.error(1,"参数错误");
         }
@@ -35,15 +35,14 @@ public class ImageListController {
         if(sType != null) {
            type = Integer.parseInt(sType);
         }
-        List list = null;
         try {
-            list = imageListService.getImageListWithTypeAndPageIndexAndPageSize(pageIndex, pageSize, type);
+            List list = imageListService.getImageListWithTypeAndPageIndexAndPageSize(pageIndex, pageSize, type);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);
             return ResultUtil.error(999, "error");
         }
-        return ResultUtil.success(list);
+        return ResultUtil.success();
     }
 
     @RequestMapping(value = "/addList", method = RequestMethod.POST)

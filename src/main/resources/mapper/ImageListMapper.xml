@@ -120,7 +120,7 @@
     <include refid="Base_Column_List" />
     from image_list
     <if test="type != null" >
-      where type = #{type,jdbcType=INTEGER}
+      where type = #{type,jdbcType=INTEGER},
     </if>
   </select>
 
