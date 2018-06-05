@@ -4,12 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-<!--    <settings>
-        &lt;!&ndash; 打印查询语句 &ndash;&gt;
+    <settings>
         <setting name="logImpl" value="LOG4J" />
-        &lt;!&ndash;<setting name="logImpl" value="STDOUT_LOGGING" />&ndash;&gt;
-    </settings>-->
-
+    </settings>
     <properties resource="./jdbc.properties"/>
 
     <environments default="development">

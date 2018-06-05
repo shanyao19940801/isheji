@@ -35,14 +35,15 @@ public class ImageListController {
         if(sType != null) {
            type = Integer.parseInt(sType);
         }
+
+        List<ImageList> list = null;
         try {
-            List list = imageListService.getImageListWithTypeAndPageIndexAndPageSize(pageIndex, pageSize, type);
+            list = imageListService.getImageListWithTypeAndPageIndexAndPageSize(pageIndex, pageSize, type);
+            return ResultUtil.success(list);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage(), e);
-            return ResultUtil.error(999, "error");
+            return ResultUtil.error(9999,"系统出错，请联系管理员");
         }
-        return ResultUtil.success();
     }
 
     @RequestMapping(value = "/addList", method = RequestMethod.POST)

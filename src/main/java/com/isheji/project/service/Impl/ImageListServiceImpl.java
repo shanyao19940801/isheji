@@ -18,10 +18,11 @@ public class ImageListServiceImpl implements IImageListService {
     ImageListMapper imageListMapper;
 
     @Transactional
-    public List<ImageList> getImageListWithTypeAndPageIndexAndPageSize(int pageIndex, int pageSize, int type) {
+    public List<ImageList> getImageListWithTypeAndPageIndexAndPageSize(int pageIndex, int pageSize, Integer type) {
         PageHelper.offsetPage(pageIndex, pageSize);
         Map paramMap = new HashMap<>();
         paramMap.put("type", type);
+
         return imageListMapper.getImageListWithType(paramMap);
     }
 
