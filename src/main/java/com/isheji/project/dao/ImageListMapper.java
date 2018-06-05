@@ -5,6 +5,7 @@ import tk.mybatis.mapper.common.Mapper;
 //import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ImageListMapper extends Mapper<ImageList>{
     int deleteByPrimaryKey(String id);
@@ -19,5 +20,5 @@ public interface ImageListMapper extends Mapper<ImageList>{
 
     int updateByPrimaryKey(ImageList record);
 
-    List<ImageList> getImageListWithType(int type);
+    List<ImageList> getImageListWithType(Map paramMap);
 }

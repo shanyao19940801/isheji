@@ -8,7 +8,7 @@ import java.util.List;
  * Created by shanyao on 2018/6/3.
  */
 public interface IImageListService {
-    List<ImageList> getImageListWithTypeAndPageIndexAndPageSize(int pageIndex, int pageSize, int type);
+    List<ImageList> getImageListWithTypeAndPageIndexAndPageSize(int pageIndex, int pageSize, Integer type);
 
     void addImageList(List<ImageList> imageListList);
 

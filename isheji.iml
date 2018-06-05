@@ -66,7 +66,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:tools:1.6.0">
         <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/tools/1.6.0/tools-1.6.0.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_91/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

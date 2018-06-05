@@ -115,11 +115,14 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
 -->
-  <select id="getImageListWithType" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="getImageListWithType" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
     select
     <include refid="Base_Column_List" />
     from image_list
-    where id = #{type,jdbcType=INTEGER}
+    <if test="type != null" >
+      where type = #{type,jdbcType=INTEGER}
+    </if>
+
   </select>
 
 </mapper>
