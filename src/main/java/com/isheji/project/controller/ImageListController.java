@@ -31,7 +31,7 @@ public class ImageListController {
         }
         int pageIndex = Integer.parseInt(sIndex);
         int pageSize = Integer.parseInt(sSize);
-        int type = 0;
+        int type = 1;
         if(sType != null) {
            type = Integer.parseInt(sType);
         }
