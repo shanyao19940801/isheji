@@ -27,6 +27,7 @@ public class ImageDetailController {
     @Access
     @RequestMapping(value = "/getDetail", method = RequestMethod.GET)
     public Msg getImageDetail(HttpServletRequest request) {
+        int[] a = null;
         logger.info("getImageDetail开始");
         String id = request.getParameter("id");
         String flag = request.getAttribute("flag").toString();
